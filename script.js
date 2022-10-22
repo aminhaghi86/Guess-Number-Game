@@ -14,7 +14,6 @@ button.addEventListener("click", runGame);
 function runGame() {
   let guessNumber = Number(prompt("Please Guess the number between 1 to 100"));
   if (guessNumber === Realnumbers) {
-
     win.style.display="block"
     button.style.visibility = "hidden";
     console.log("woooooooooo!!!!!You Win");
@@ -23,7 +22,7 @@ function runGame() {
     win.style.color='green'
     resetPage.style.display = "block";
   } else if (guessNumber < Realnumbers) {
-    res.innerHTML = "you gues smaller number";
+    res.innerHTML = "you guess smaller number";
     res.style.color='yellow'
   } else if (guessNumber > Realnumbers) {
     res.innerHTML = "you gues larger number";
