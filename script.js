@@ -6,7 +6,6 @@ let res = document.getElementById("result");
 let win = document.getElementById("win");
 let resetPage = document.getElementById("reset");
 let Realnumbers = Math.floor(Math.random() * 100 + 1);
-console.log(Realnumbers);
 win.style.display="none"
 // LISTEN TO CLICK EVENT
 button.addEventListener("click", runGame);
