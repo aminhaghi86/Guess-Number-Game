@@ -8,31 +8,35 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="game">
-      <h1>Guess Number between 1 to 100</h1>
-
-      <button id="btn">PLAY</button>
-    </div>
-    <div
-      style="
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-        align-items: center;
-        justify-content: center;
-      "
-    >
-      <span id="result"></span>
-      <marquee
-        id="win"
-        direction="down"
-        width="250"
-        height="200"
-        behavior="alternate"
-        style="border:solid"
+    <section class="container">
+      <div class="game">
+        <h1>Guess a number between 1 to 100</h1>
+        <button id="btn">PLAY</button>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 25px;
+          align-items: center;
+          justify-content: center;
+        "
       >
-      </marquee>
-      <button class="hide" id="reset">RESET</button>
+        <span id="result"></span>
+        <marquee
+          id="win"
+          direction="down"
+          width="250"
+          height="200"
+          behavior="alternate"
+          style="border: solid"
+        >
+        </marquee>
+        <button class="hide" id="reset">RESET</button>
+      </div>
+    </section>
+    <div class="absolutediv">
+      <h1 id="timeDispay"></h1>
     </div>
     <script src="./script.js"></script>
   </body>

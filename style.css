@@ -6,23 +6,31 @@
 
 body{
     height: 100vh;
-    background-color: rgb(45, 186, 211);
+    background-color: #392759;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
+
 .game{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 30px;
     gap: 25px;
 }
+.game h1{
+    color: #E8F0FF;
+}
 button{
-    background: #000000;
-    color: #ffffff;
+    border: none;
+    background-color: #F7ACCF;
+    letter-spacing: 2px;
     transition: all .5s ease;
     padding: 16px 12px;
     border-radius: 5px;
+    transition: all .5s ease-in-out;
 }
 button:hover{
     background: #ffffff;
@@ -30,4 +38,17 @@ button:hover{
 }
 .hide{
     display: none;
+}
+#result {
+    padding-top: 30px;
+    font-size: 40px;
+}
+.absolutediv{
+    position: absolute;
+    top: 2%;
+    left:1%;
+    letter-spacing: 3px;
+    font-size: 12px;
+    text-align: center;
+    color: rgb(255, 255, 255);
 }
