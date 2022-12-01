@@ -36,9 +36,7 @@ button:hover{
     background: #ffffff;
     color: #000000;
 }
-.hide{
-    display: none;
-}
+
 #result {
     padding-top: 30px;
     font-size: 40px;
