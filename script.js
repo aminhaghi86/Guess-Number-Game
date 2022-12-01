@@ -1,48 +1,58 @@
 "use strict";
 //  DECLARE variables
 let button = document.getElementById("btn");
-let res = document.getElementById("result");
-let win = document.getElementById("win");
+let resEl = document.getElementById("result");
 let resetPage = document.getElementById("reset");
 let timeDispay = document.getElementById("timeDispay");
 
-let originalNum = Math.floor(Math.random() * 100) + 1;
-win.style.display = "none";
-// LISTEN TO CLICK EVENT
-button.addEventListener("click", runGame);
+// generate random number
+const originalNum = Math.floor(Math.random() * 100) + 1;
 console.log(originalNum);
 // RUN THE GAME BY PRESING BUTTON
+setInterval(timeShow, 1000);
 function runGame() {
   let guessNumber = Number(prompt("Please Guess the number between 1 to 100"));
-  if (guessNumber !=''){
-  if (guessNumber === originalNum) {
-    win.style.display = "block";
-    button.style.visibility = "hidden";
-    res.style.visibility = "hidden";
-    win.innerHTML = ` Yes!!!!! The Number is ${guessNumber}`;
-    win.style.color = "green";
-    resetPage.style.display = "block";
-  } else if (guessNumber < originalNum) {
-    res.innerHTML = `${guessNumber} is less than original Number`;
-    res.style.color = "yellow";
-  } else if (guessNumber > originalNum) {
-    res.innerHTML = `${guessNumber} is greater than original Number`;
-    res.style.color = "red";
+  if (guessNumber != "" && guessNumber !== null) {
+    if (guessNumber === originalNum) {
+      render(guessNumber, "green",' is correct!!');
+      setTimeout(resetGame, 2000);
+    } else if (guessNumber < originalNum) {
+      render(guessNumber, "yellow",' is smaller than real number');
+    } else if (guessNumber > originalNum) {
+      render(guessNumber, "red",' is greater than real number');
+    }
+  } else {
+    alert("please enter number :)");
   }
-}else {
-  alert('please enter number :)')
 }
-}
-resetPage.addEventListener("click", () => {
-  location.reload();
-});
+const render = (num, color,status) => {
+  resEl.innerHTML = `${num}${status}`;
+  resEl.style.color = color;
+};
+const resetGame = () => {
+  let text = "Do you want to play again?";
+  if (confirm(text) == true) {
+    window.location.reload();
+  } else {
+    const audio = new Audio('trance.mp3');
+    audio.play();
+  }
+};
 
 // display date
-let newdate = new Date();
-let today =
-  newdate.getFullYear() +
-  "-" +
-  (newdate.getMonth() + 1) +
-  "-" +
-  newdate.getDate();
-timeDispay.innerHTML += today;
+function timeShow() {
+  let newdate = new Date().toLocaleTimeString();
+  timeDispay.innerHTML = newdate;
+}
+
+
+
+// addEventListener or onclick to start project
+
+//
+resetPage.addEventListener("click", resetGame);
+
+button.addEventListener("click", runGame);
+
+
+
